@@ -1,0 +1,58 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $soft-black;
+}
+
+body {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 110%;
+    background-color: $background;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-color;
+}
+
+button {
+    padding: 10px 18px;
+    border: 0px solid;
+    border-radius: 4px;
+    color: $background;
+    background-color:$primary-color;
+    transition: 0.3s;
+    font-family: 'Arial', sans-serif; 
+    font-weight: bold; 
+}
+
+button:hover {
+    background-color: $secondary-color;
+}
+
+input {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 0px solid;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+form input {
+    width: 280px;
+}
+
+h2 {
+    color: $primary-color;
+}

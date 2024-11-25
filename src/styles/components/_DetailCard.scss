@@ -1,0 +1,46 @@
+@import '../utils/variables.scss';
+
+.card-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    padding: 0px 20px;;
+    border-radius: 8px;
+    background-color: $white;
+    transition: width 0.5s ease, transform 0.5s ease;
+}
+
+.card-detail img {
+    height: 220px;
+}
+
+.card-detail > div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 4px;
+}
+
+.card-detail h5 {
+    font-weight: 500;
+    font-size: 18px;
+    width: 100%;
+    color: $grey;
+    text-align: left;
+    margin-bottom: 2px;
+}
+
+.card-detail h3 {
+    font-size: 26px;
+}
+
+#stats > div {
+    margin-bottom: 12px;
+}
+
+.card-detail p {
+    color: $dark-grey;
+}
