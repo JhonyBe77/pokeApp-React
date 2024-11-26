@@ -6,7 +6,7 @@ const Card = ({ data }) => {
   const { name, url } = data;
 
   if (!name || !url) {
-    return null; // Si los datos no son válidos, no renderiza la tarjeta
+    return null; 
   }
 
   const id = url.split("/").slice(-2, -1)[0];

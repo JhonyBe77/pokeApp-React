@@ -16,14 +16,12 @@ const Search = () => {
   return (
     <div>
       <form id="searchOne" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="nombre"
-          value={value}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit" id="round-btn">Buscar</button>
+        <div>
+          <input type="text" name="nombre" value={value} onChange={handleChange} required />
+        </div>
+        <div>
+          <button type="submit" id="round-btn">Buscar</button>
+        </div>
       </form>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import { pokeContext } from "../../../../context/pokeContext";
 import Card from "./Card";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 
 const ListaPokemon = () => {
   const { pokemons } = useContext(pokeContext);
@@ -15,21 +14,28 @@ const ListaPokemon = () => {
           name: pokemon.name,
           url: `https://pokeapi.co/api/v2/pokemon/${pokemon.id}/`,
         }}
-        key={uuidv4()}
+        key={pokemon.id} // Usamos el ID como key
       />
     ));
 
   useEffect(() => {
     const getPokemonBySearch = async () => {
       if (pokemons.length > 0) {
-        const pokemonToSearch = pokemons[pokemons.length - 1].toLowerCase();
-        
+        const input = pokemons[pokemons.length - 1].toLowerCase();
+
+        // Verificar si es un ID numérico o un nombre
+        const isNumeric = !isNaN(input);
+        const pokemonToSearch = isNumeric ? parseInt(input, 10) : input;
+
         // Verificar si el Pokémon ya existe en la lista
         const isAlreadySearched = pokemonSearched.some(
-          (pokemon) => pokemon.name.toLowerCase() === pokemonToSearch
+          (pokemon) =>
+            pokemon.id === pokemonToSearch || pokemon.name.toLowerCase() === pokemonToSearch
         );
 
-        if (!isAlreadySearched) {
+        if (isAlreadySearched) {
+          alert("¡Este Pokémon ya está pintado!");
+        } else {
           try {
             const resp = await axios.get(
               `https://pokeapi.co/api/v2/pokemon/${pokemonToSearch}`
@@ -41,6 +47,7 @@ const ListaPokemon = () => {
             setPokemonSearched((prev) => [...prev, pokemonData]);
           } catch (err) {
             console.error("No se encontró el Pokémon:", err);
+            alert("No se encontró. Verifica el nombre o ID.");
           }
         }
       }
