@@ -14,13 +14,19 @@ const Card = ({ data }) => {
   const formattedId = id.padStart(3, "0");
   const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
+  // Función para navegar a otra página
+  const handleNavigate = () => {
+    navigate(`/pokemon/${id}`); // Ajusta la ruta según tus necesidades
+  };
+
   return (
     <article className="card">
       <h5>#{formattedId}</h5>
-      <img src={imageUrl} alt={name} />
       <div>
         <h4>{formattedName}</h4>
       </div>
+      <img src={imageUrl} alt={name} />
+      <button onClick={handleNavigate} className="btn">+Info</button>
     </article>
   );
 };

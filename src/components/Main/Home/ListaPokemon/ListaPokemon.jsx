@@ -7,6 +7,9 @@ const ListaPokemon = () => {
   const { pokemons } = useContext(pokeContext);
   const [pokemonSearched, setPokemonSearched] = useState([]);
 
+  // Limpia el estado al entrar a la página
+  useEffect(() => {setPokemonSearched([]);}, []);
+
   const renderSearchedCard = () =>
     pokemonSearched.map((pokemon) => (
       <Card
@@ -23,11 +26,9 @@ const ListaPokemon = () => {
       if (pokemons.length > 0) {
         const input = pokemons[pokemons.length - 1].toLowerCase();
 
-        // Verificar si es un ID numérico o un nombre
         const isNumeric = !isNaN(input);
         const pokemonToSearch = isNumeric ? parseInt(input, 10) : input;
 
-        // Verificar si el Pokémon ya existe en la lista
         const isAlreadySearched = pokemonSearched.some(
           (pokemon) =>
             pokemon.id === pokemonToSearch || pokemon.name.toLowerCase() === pokemonToSearch

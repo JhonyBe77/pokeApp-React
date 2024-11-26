@@ -14,13 +14,13 @@ const DetailCard = (pokemon) => {
         <h5>#{idThreeLength}</h5>
         <h3>{nameUppercase}</h3>
       </div>
+      <div>
+      <img src={imageUrl} alt={nameUppercase} />
+    </div>
       <p><strong>Height:</strong> {height * 10} cm</p>
       <p><strong>Weight:</strong> {weight / 10} kg</p>
       <p><strong>Ability:</strong> {abilities[0].ability.name}</p>
       <p><strong>Types:</strong> {types[0].type.name} {types[1] ?", " + types[1].type.name : ""}</p>
-    </div>
-    <div>
-      <img src={imageUrl} alt={nameUppercase} />
     </div>
   </article>;
 
