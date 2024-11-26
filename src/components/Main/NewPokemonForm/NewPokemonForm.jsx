@@ -25,7 +25,7 @@ const NewPokemonForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formValues.nombre || !formValues.img_url || !formValues.tipo1) {
-      alert("Por favor, completa todos los campos obligatorios.");
+      alert("Completa todos los campos obligatorios.");
       return;
     }
     addPokemon({ ...formValues, id: uuidv4() });
